@@ -32,6 +32,7 @@ vim.opt.fillchars = { eob = ' ' }
 
 vim.opt.showmode = false
 vim.opt.ruler = false
+vim.opt.cmdwinheight = 1
 
 vim.opt.shortmess:append({ I = true })
 

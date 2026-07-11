@@ -19,21 +19,22 @@ local default = {
 
 function M.setup()
 	require("tiny-devicons-auto-colors").setup()
+	require("plugins.devicons-auto-colors.autocommands").setup()
 end
 
 function M.apply(colorscheme)
-	local palettes = {
-		pywal16 = require("pywal16.core").get_colors(),
-		["night-owl"] = require("night-owl.palette"),
-	}
+	require("tiny-devicons-auto-colors").apply(default)
 
-	local palette = palettes[colorscheme]
+	if utils.colorschemeExists(colorscheme) then
+		local palettes = {
+			pywal16 = require("pywal16.core").get_colors(),
+			["night-owl"] = require("night-owl.palette"),
+		}
 
-	if not utils.colorschemeExists(colorscheme) then
-		palette = default
+		local palette = palettes[colorscheme]
+
+		require("tiny-devicons-auto-colors").apply(palette)
 	end
-
-	require("tiny-devicons-auto-colors").apply(palette)
 end
 
 return M

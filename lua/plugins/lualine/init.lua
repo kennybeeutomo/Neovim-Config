@@ -27,6 +27,9 @@ function M.setup(theme)
 	if theme == nil or isDefaultTheme(theme) then
 		theme = "default"
 	end
+
+	local hidden = vim.o.laststatus == 0
+
 	require("lualine").setup {
 		options = {
 			icons_enabled = true,
@@ -83,7 +86,9 @@ function M.setup(theme)
 	}
 	-- 
 
-	require("plugins.lualine.autocommands")
+	if hidden then vim.o.laststatus = 0 end
+
+	require("plugins.lualine.autocommands").setup()
 end
 
 return M

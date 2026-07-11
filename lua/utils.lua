@@ -46,12 +46,11 @@ function M.cleanColorscheme(colorscheme)
 		vim.cmd.colorscheme(colorscheme)
 	end
 
-	if not vim.g.nvimpager then
-		require("plugins.lualine").setup(colorscheme)
-	end
+	vim.api.nvim_exec_autocmds("User", {
+		pattern = "CleanColorscheme",
+		data = colorscheme
+	})
 
-	require("plugins.devicons-auto-colors").apply("default")
-	require("plugins.devicons-auto-colors").apply(colorscheme)
 	vim.g.colors_name = colorscheme
 end
 
