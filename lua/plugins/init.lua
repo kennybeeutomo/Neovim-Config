@@ -12,8 +12,6 @@ load({
 	"mason",
 
 	"treesitter",
-	"treesitter-incselect",
-	"treesitter-textobjects",
 	"autotag",
 
 	"nvtree",
