@@ -76,9 +76,10 @@ function M.spawnTerminal()
 	local cwd = vim.uv.cwd()
 	local terminal = os.getenv("TERM")
 	local commands = {
-		alacritty = ' --working-directory '
+		alacritty = 'alacritty --working-directory ',
+		['xterm-kitty'] = 'kitty -d ',
 	}
-	local command = "silent !" .. terminal .. commands[terminal] .. "\'" .. cwd .. "\' &"
+	local command = "silent !" .. commands[terminal] .. "\'" .. cwd .. "\' &"
 	vim.cmd(command)
 end
 
