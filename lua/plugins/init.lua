@@ -32,6 +32,4 @@ load({
 	"dap",
 	"indent-blankline",
 	"dressing",
-
-	"flutter-tools",
 })
